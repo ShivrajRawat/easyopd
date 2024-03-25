@@ -1,0 +1,1 @@
+.doctor-card{margin:10px!important}.list-enter-active,.list-leave-active{transition:all 1s ease}.list-leave-from{transform:scale(1);opacity:1}.list-enter-to{opacity:1;transform:scale(1)}.list-enter-from,.list-leave-to{opacity:0;transform:scale(.1)}.list-leave-active{animation:ease-out .5s reverse}
