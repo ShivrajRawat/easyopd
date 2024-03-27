@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
 importScripts("https://www.gstatic.com/firebasejs/10.7.2/firebase-app-compat.js")
-importScripts("https://www.gstatic.com/firebasejs/10.7.2/firebase-messaging.js")
+importScripts("https://www.gstatic.com/firebasejs/10.7.2/firebase-messaging-compat.js")
 
 if(firebase){
-  firebase.initializeApp({
+  // Initialize Firebase
+  const app = firebase.initializeApp({
     apiKey: "AIzaSyAh1dJ1YwWTWAmPmqnWYSL0ySNK2Z-WsXk",
     authDomain: "easyopd-eb7ba.firebaseapp.com",
     projectId: "easyopd-eb7ba",
@@ -12,7 +13,9 @@ if(firebase){
     appId: "1:948563831343:web:9a6d45417b31d3b52c34da",
     measurementId: "G-7C0WFD0CCJ",
   });
+  console.log('FirebaseSW::Firebase app initalized.')
   
+  // Initialize Firebase Cloud Messaging and get a reference to the service
   const messaging = firebase.messaging();
   if(messaging){
     messaging.onBackgroundMessage(function(payload){
@@ -26,11 +29,14 @@ if(firebase){
     
       self.registration.showNotification(title, options);
     });
+    console.log('FirebaseSW::Firebase messaging initalized.')
   }
   else{
-    console.log('SW::Firebase messaging is not available.')
+    console.log('FirebaseSW::Firebase messaging is not available.')
   }
 }
-console.log('SW::Firebase is not initialize.')
+else{
+  console.log('FirebaseSW::Firebase is not initialize.')
+}
 
 
